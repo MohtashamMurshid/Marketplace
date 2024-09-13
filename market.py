@@ -23,7 +23,7 @@ def market_place():
         {'id': 10, 'name': 'Printer', 'barcode': '758493028347', 'price': 150},
         {'id': 11, 'name': 'External Hard Drive', 'barcode': '983201948573', 'price': 100},
         {'id': 12, 'name': 'Speakers', 'barcode': '384750294738', 'price': 120},
-        {'id': 13, 'name': 'Charger', 'barcode': '294857492038', 'price': 30}
+
     ]
 
     return render_template('market.html', items = items)
