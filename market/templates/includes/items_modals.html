@@ -1,0 +1,127 @@
+<style>
+.modal-content {
+        background-color: #1b1b2f; /* Dark background matching the page */
+        color: #e0e0e0; /* Light text color for readability */
+        border-radius: 10px; /* Rounded corners for a modern look */
+    }
+
+    .modal-header {
+        border-bottom: 1px solid #333; /* Divider line at the bottom of the header */
+    }
+
+    .modal-title {
+        color: #e0e0e0; /* Light text color */
+    }
+
+    .close {
+        color: #e0e0e0; /* Close button color */
+    }
+
+    .modal-footer {
+        border-top: 1px solid #333; /* Divider line at the top of the footer */
+    }
+
+    .btn-outline-success {
+        color: #28a745; /* Outline color for success button */
+        border-color: #28a745; /* Border color */
+        border-radius: 30px; /* Rounded corners */
+        background: none;
+        transition: all 0.3s ease;
+    }
+
+    .btn-outline-success:hover {
+        color: #fff;
+        background-color: #28a745;
+        border-color: #28a745;
+    }
+
+    .btn-secondary {
+        color: #e0e0e0; /* Light color for secondary button */
+        border-color: #333; /* Border color */
+        border-radius: 30px; /* Rounded corners */
+        background: none;
+        transition: all 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+        color: #fff;
+        background-color: #333;
+        border-color: #333;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .btn {
+        border-radius: 30px; /* Rounded corners for buttons */
+    }
+</style>
+
+<!-- More Info -->
+<div class="modal fade" id="Modal-MoreInfo-{{ item.id }}"
+     tabindex="-1"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalLabel">
+          <!-- -->
+          {{ item.name }}
+        </h5>
+        <button type="button" class="close"
+                data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {{ item.description }}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary"
+                data-dismiss="modal">Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Purchase Confirm -->
+<div class="modal fade" id="Modal-PurchaseConfirm-{{ item.id }}"
+     tabindex="-1"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalLabel">
+          <!-- -->
+          {{ item.name }}
+        </h5>
+        <button type="button" class="close"
+                data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="POST">
+          {{ purchase_form.hidden_tag() }}
+          <h4 class="text-center">
+            Are you sure you want to buy {{ item.name }} for {{ item.price }}$ ?
+          </h4>
+          <br>
+          <h6 class="text-center">
+            By clicking Purchase, you will purchase this item.
+          </h6>
+          <br>
+          <input id="purchased_item" name="purchased_item" type="hidden" value="{{item.name}}">
+          {{ purchase_form.submit(class="btn btn-outline-success btn-block") }}
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary"
+                data-dismiss="modal">Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

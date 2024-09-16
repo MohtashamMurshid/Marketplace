@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block title %}
+    Welcome to Marketplace
+{% endblock %}
+
+{% block content %}
+    <div class="text-center">
+        <div class="col-md-8 col-lg-6 mx-auto my-5">
+            <img class="mb-4" src="https://www.seekpng.com/png/full/433-4331367_batman-logo-satin-premium-emblem-logo-logo-png.png" alt="MarketPlace Logo" style="height: 8rem;">
+            <h1 class="display-4 font-weight-bold text-light">Welcome to MarketPlace</h1>
+            <p class="lead font-weight-normal text-light">Explore a wide range of products, from the latest gadgets to unique finds. Click below to start purchasing!</p>
+            <a class="btn btn-futuristic btn-lg mt-3" href="{{ url_for('market_page') }}">Get Started</a>
+        </div>
+
+        <!-- Additional Interactive Section -->
+        <div class="container mt-5">
+            <div class="row text-center">
+                <div class="col-md-4 mb-4">
+                    <div class="card bg-light text-dark border-light">
+                        <div class="card-body">
+                            <h5 class="card-title">Exclusive Deals</h5>
+                            <p class="card-text">Check out our latest deals and discounts on a variety of products. Save more while shopping smart!</p>
+                            <a href="{{ url_for('market_page') }}" class="btn btn-futuristic-deals btn-sm text-dark">Explore Deals</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card bg-light text-dark border-light">
+                        <div class="card-body">
+                            <h5 class="card-title">New Arrivals</h5>
+                            <p class="card-text">Discover the newest products added to our marketplace. Stay ahead with the latest trends and innovations.</p>
+                            <a href="{{ url_for('market_page') }}" class="btn btn-light btn-sm">View New Arrivals</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card bg-light text-dark border-light">
+                        <div class="card-body">
+                            <h5 class="card-title">Top Sellers</h5>
+                            <p class="card-text">Find out which products are flying off the shelves. Get your hands on the top-rated items now!</p>
+                            <a href="{{ url_for('market_page') }}" class="btn btn-light btn-sm">See Top Sellers</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Decorative Elements -->
+        <div class="product-device box-shadow d-none d-md-block"></div>
+        <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
+    </div>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}
+    Register Page
+{% endblock %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <form method="POST" class="form-register" style="color:white; max-width: 400px; width: 100%;">
+        {{ form.hidden_tag() }}
+        <div class="text-center mb-4">
+            <img class="mb-4" src="https://www.seekpng.com/png/full/433-4331367_batman-logo-satin-premium-emblem-logo-logo-png.png" alt="" style="height: 6rem;">
+            <h1 class="h3 mb-3 font-weight-normal">Please Create Your Account</h1>
+        </div>
+        <div class="form-group">
+            {{ form.username.label(class="form-label") }}
+            {{ form.username(class="form-control form-control-custom", placeholder="User Name") }}
+        </div>
+
+        <div class="form-group">
+            {{ form.email_address.label(class="form-label") }}
+            {{ form.email_address(class="form-control form-control-custom", placeholder="Email Address") }}
+        </div>
+
+        <div class="form-group">
+            {{ form.password1.label(class="form-label") }}
+            {{ form.password1(class="form-control form-control-custom", placeholder="Password") }}
+        </div>
+
+        <div class="form-group">
+            {{ form.password2.label(class="form-label") }}
+            {{ form.password2(class="form-control form-control-custom", placeholder="Confirm Password") }}
+        </div>
+
+        <div class="form-group text-center mb-4">
+            <h6>Already have an account?</h6>
+            <a class="btn btn-futuristic btn-sm" href="{{ url_for('login_page') }}">Login</a>
+        </div>
+
+        {{ form.submit(class="btn btn-futuristic btn-lg btn-block") }}
+    </form>
+</div>
+{% endblock %}

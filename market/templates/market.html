@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block title %}
+Market Page
+{% endblock %}
+{% block content %}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-lg-8 mb-4">
+            <h2 class="text-light">Available Items on the Market</h2>
+            <p class="text-muted">Click on one of the items to start buying</p>
+            <table class="table table-hover table-light-custom">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Barcode</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Options</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in items %}
+                    {% include 'includes/items_modals.html' %}
+                    <tr>
+                        <td>{{ item.id }}</td>
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.barcode }}</td>
+                        <td>${{ item.price }}</td>
+                        <td>
+                            <button class="btn btn-futuristic btn-sm" data-toggle="modal" data-target="#Modal-MoreInfo-{{ item.id }}">More Info</button>
+                            <button class="btn btn-futuristic btn-sm" data-toggle="modal" data-target="#Modal-PurchaseConfirm-{{ item.id }}">Purchase</button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-4">
+            <h2 class="text-light">Owned Items</h2>
+            <p class="text-muted">Click on sell item to put an item back on the Market</p>
+            <div class="row">
+                {% for owned_item in owned_items %}
+                {% include 'includes/owned_items_modals.html' %}
+                <div class="col-md-6 mb-4">
+                    <div class="card bg-dark text-light border-light-custom">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ owned_item.name }}</h5>
+                            <button type="button" class="btn btn-futuristic btn-sm mb-2" data-toggle="modal" data-target="#Modal-SellingConfirm-{{ owned_item.id }}">
+                                Sell this Item
+                            </button>
+                            <p class="card-text"><strong>
+                            This item costs ${{ owned_item.price }}
+                            </strong></p>
+                        </div>
+                    </div>
+                </div>
+                            {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
