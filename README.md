@@ -63,9 +63,6 @@ This Flask application serves as a marketplace where users can view available it
    Optionally, configure other variables as needed for your application (e.g., database URLs, secret keys).
 
 ## Usage
-```bash
-pip install -r requirements.txt
-```
 
  **Run the Application**
 
@@ -83,12 +80,13 @@ pip install -r requirements.txt
 
 ## Directory Structure
 
-- `app.py`: Main application file where Flask routes and configuration are defined.
-- `templates/`: Directory containing HTML templates for rendering the web pages.
-- `static/`: Directory containing static files such as CSS, JavaScript, and images.
-- `models.py`: File defining the database models for items and users.
-- `forms.py`: File defining Flask-WTF forms used in the application.
-- `includes/`: Directory containing partial templates for modals and other reusable components.
+-```instance``` : contains database.
+
+-```market``` : contains all main py files.
+
+-```requirments.txt``` : contains all required libs .
+
+-```run.py``` : main ppy file.
 
 ## Customization
 
